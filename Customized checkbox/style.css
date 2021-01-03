@@ -1,0 +1,89 @@
+:root {
+  --color: rebeccapurple;
+  --disabled: #959495;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.checkbox {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: min-content auto;
+      grid-template-columns: -webkit-min-content auto;
+      grid-template-columns: min-content auto;
+  grid-gap: 0.5em;
+  font-size: 2rem;
+  color: var(--color);
+}
+
+.checkbox--disabled {
+  color: var(--disabled);
+}
+
+.checkbox__control {
+  display: -ms-inline-grid;
+  display: inline-grid;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.25em;
+  border: 0.1em solid currentColor;
+}
+
+.checkbox__control svg {
+  -webkit-transition: -webkit-transform 0.1s ease-in 25ms;
+  transition: -webkit-transform 0.1s ease-in 25ms;
+  transition: transform 0.1s ease-in 25ms;
+  transition: transform 0.1s ease-in 25ms, -webkit-transform 0.1s ease-in 25ms;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.checkbox__input {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "checkbox";
+}
+
+.checkbox__input > * {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: checkbox;
+}
+
+.checkbox__input input {
+  opacity: 0;
+  width: 1em;
+  height: 1em;
+}
+
+.checkbox__input input:focus + .checkbox__control {
+  -webkit-box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
+          box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
+}
+
+.checkbox__input input:checked + .checkbox__control svg {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.checkbox__input input:disabled + .checkbox__control {
+  color: var(--disabled);
+}
+
+body {
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  grid-gap: 2rem;
+  padding: 1rem;
+  line-height: 1;
+}
+/*# sourceMappingURL=style.css.map */
